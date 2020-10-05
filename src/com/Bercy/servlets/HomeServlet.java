@@ -2,12 +2,15 @@ package com.Bercy.servlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.Bercy.Beans.Concert;
 import com.Bercy.bdd.ConnexionBDD;
 
 import jdk.nashorn.internal.ir.ForNode;
@@ -28,12 +31,19 @@ public class HomeServlet extends HttpServlet{
 			ConnexionBDD conn = new ConnexionBDD();
 			conn.seConnecter();
 			
+			List<Concert> listeConcerts = conn.recupConcerts();
+			
+			
+			req.setAttribute("listeConcerts", listeConcerts);
+			
 			
 		} catch (IOException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/Home.jsp" ).forward( req, res );	
+
 	}
 
 }
