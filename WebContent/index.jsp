@@ -16,15 +16,34 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/script.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css" integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous">
 
-<section id="social-network">
+<section id="header">
 <div class="fluid-container">
+
+  <div class="row">
+    <div class="col-sm">
+    <div class="contact">
+    <p class="text-left"><i class="fas fa-phone"></i> 02 43 40 70 00</p>
+    <p class="text-left"><i class="fas fa-ticket-alt"></i> 09 70 25 22 12</p>
+    <p class="text-left"><i class="fas fa-envelope"></i> info@antareslemans.com </p>		  
+    </div>
+    </div>
+    <div class="col-sm">
+      <img src="assets/img/logo.png" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col-sm text-right">
+      	<i class="fab fa-facebook-square fa-lg"></i>
+		<i class="fab fa-twitter-square fa-lg"></i>
+    </div>
+  </div>
+		
 
 </div>
 
-</section>
 
-<ul class="nav justify-content-center">
+</section>
+<ul class="nav first-nav justify-content-center">
   <li class="nav-item">
     <a class="nav-link active" href="#">Accueil</a>
   </li>
@@ -86,12 +105,32 @@
 	<div class="label">
 		<h3>A l'Affiche</h3>
 	</div>
-	<nav class="navbar navbar-light bg-light filter">
-  		<a class="navbar-brand" href="#">Navbar</a>
-	</nav>
+	<div class="filter">
+	
+		<ul class="nav  justify-content-center">
+		  <li class="nav-item">
+		    <a class="nav-link active" href="#">Tous</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Concert</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="#">Spectacle</a>
+		  </li>
+		   <li class="nav-item">
+		    <a class="nav-link" href="#">BasketBall</a>
+		  </li>
+		  <form class="form-inline">
+			    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+			    <a href="#"><i class="fas fa-search"></i></a>
+  		 </form>
+		</ul>
+	</div>
+    
+  
 	<div data-aos="fade-up">
 	<div class="row">
-	  <div class="col-3">	  
+	  <div class="col-md-3">	  
 	  <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -105,8 +144,7 @@
 	  
 	  
 	  
-	  <div class="col-3">
-	  
+	  <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -118,7 +156,7 @@
 		</a>
 		
 	  </div>
-	  <div class="col-3">
+	  <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -129,7 +167,7 @@
 		</div>
 		</a>
 	  </div>
-	  <div class="col-3">
+	  <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -140,7 +178,7 @@
 		</div>
 		</a>
 	  </div>
-	    <div class="col-3">
+	    <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -151,7 +189,7 @@
 		</div>
 		</a>
 	  </div>
-	      <div class="col-3">
+	      <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -162,7 +200,7 @@
 		</div>
 		</a>
 	  </div>
-	      <div class="col-3">
+	      <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -173,7 +211,7 @@
 		</div>
 		</a>
 	  </div>
-	      <div class="col-3">
+	      <div class="col-md-3">
 	  	 <a href="#">
 	  	<div class="card">
 		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
@@ -195,7 +233,7 @@
 	</div>
 	<div class="row">
     <div class="col">
-      1 of 2
+      Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
     </div>
     <div class="col">
   <img src="assets/img/salle.jpg" alt="error">

@@ -5,17 +5,34 @@ section{
 	padding-bottom:20px;
 }
 
-/* HEADER NAVBAR */
-.nav{
+/*  NAVBAR */
+.first-nav{
 	background-color:#1abc9c
 }
 .nav-item a{
 	color : black;
 }
+.nav-item a:hover{
+	color : white;
+}
+.logo img{
+	width:500px;
+	height:100px;
+}
+.social-network{
+	text-align: right;
+}
+.contact p{
+	margin-bottom:2px !important;
+}
 
-/* SECTION SOCIAL NETWORK */
-#social-network{
-	background-color: white;
+/* SECTION HEADER */
+#header{
+	background-color: #f2f0e9;
+	padding:5px !important;
+}
+.fa-search{
+	color:black;
 }
 
 /* SECTION NEWS */
@@ -32,6 +49,15 @@ section{
 /*  CARD CONCERT */
 .filter{
 	margin-bottom: 20px;
+	background-color:  #d0ddda;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.fa-search{
+	color:black;
+}
+form{
+	margin-left: 30px;
 }
 .card{
 	margin-bottom: 30px;
