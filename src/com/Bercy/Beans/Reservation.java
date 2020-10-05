@@ -1,7 +1,10 @@
 package com.Bercy.Beans;
 
 public class Reservation {
-	String numero;
+	
+	private String numero;
+	private String date_heure;
+	private Concert concert;
 	
 	
 }
