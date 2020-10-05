@@ -1,0 +1,65 @@
+/* GENERAL */
+
+section{
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+/* HEADER NAVBAR */
+.nav{
+	background-color:#1abc9c
+}
+.nav-item a{
+	color : black;
+}
+
+/* SECTION SOCIAL NETWORK */
+#social-network{
+	background-color: white;
+}
+
+/* SECTION NEWS */
+.carousel-item img{
+	height : 400px !important;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#news{
+	background-color: black;
+}
+
+/*  CARD CONCERT */
+.filter{
+	margin-bottom: 20px;
+}
+.card{
+	margin-bottom: 30px;
+}
+.card-body p{
+	color: black !important;
+	text-decoration: none !important;
+}
+
+/*   CONCERT HALL */
+
+#concert-hall{
+	background-color: #1abc9c;
+}
+
+.label-hall{
+	color: black;
+	
+}
+
+/*  INFORMATIONS */
+
+#informations{
+	background-color: black;
+}
+
+.label-informations{
+	color: white;
+	
+}
+
