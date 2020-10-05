@@ -1,5 +1,39 @@
 package com.Bercy.servlets;
 
-public class HomeServlet {
+import java.io.IOException;
+import java.sql.SQLException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.Bercy.bdd.ConnexionBDD;
+
+import jdk.nashorn.internal.ir.ForNode;
+
+public class HomeServlet extends HttpServlet{
+
+	public void doGet(HttpServletRequest req, HttpServletResponse res)
+		      throws ServletException, IOException {
+		
+
+		try {
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			ConnexionBDD conn = new ConnexionBDD();
+			conn.seConnecter();
+			
+			
+		} catch (IOException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 }
