@@ -150,12 +150,8 @@
 	  	  			out.print("<div class=\"card-body\">");
 		  	  		out.print("<div class=\"concert-title\">"+c.getIntitule()+"</div>");
 		  	  		
-		  	  	 	System.out.println(c.getDateHeure());
-		  	  		
-		  	  		Date date = new SimpleDateFormat("dd/MM/yyyy").parse(c.getDateHeure());
-		  	  		String formattedDate = new SimpleDateFormat("dd/MM/yyyy, Ka").format(date);
-		  	  		
-			  	  	out.print("<div class=\"concert-date\"><p class=\"card-text\">Le "+formattedDate+"</p></div>");
+		  	  				  	  		
+			  	  	out.print("<div class=\"concert-date\"><p class=\"card-text\">Le "+c.getDate()+" à " +c.getHeure()+"</p></div>");
 			  	  	out.print("<div class=\"state\">");
 			  	  	if( c.getEtat().getIntitule().equalsIgnoreCase("OUVERT") == true){
 			  	  		out.print("<a href=\"#\" class=\"btn-state more-info\">PLUS D'INFOS</a>");

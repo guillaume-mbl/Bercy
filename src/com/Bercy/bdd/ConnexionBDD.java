@@ -42,11 +42,14 @@ public class ConnexionBDD {
 	    }
 	    
 	    public List<Concert> recupConcerts() throws SQLException{
-	    	String query = "Select concert.*, etat.id, etat.intitule from concert inner join etat on concert.etat_id = etat.id order by dataheure desc";
+	    	String query = "Select concert.*, etat.id, etat.intitule from concert inner join etat on concert.etat_id = etat.id order by dateheure asc";
 	    	
 	    	ResultSet rs = maConnexion.createStatement().executeQuery(query);
 	    	
 	    	List<Concert> liste = new ArrayList<Concert>();
+	    	
+	    	String jour, mois, annee, heure, minutes;
+	    	
 	    	
 	    	while(rs.next()) {
 	    		Concert c = new Concert();
@@ -56,10 +59,16 @@ public class ConnexionBDD {
 	    		c.setId(rs.getInt("id"));
 	    		c.setIntitule(rs.getString("intitule"));
 	    		c.setDescription(rs.getString("description"));
-	    		c.setDateHeure(rs.getString("dateheure"));
 	    		
+	    		System.out.println(rs.getString("dateheure"));
+	    		annee = rs.getString("dateheure").substring(0,4);
+	    		mois = rs.getString("dateheure").substring(5,7);
+	    		jour = rs.getString("dateheure").substring(8,10);
+	    		heure = rs.getString("dateheure").substring(11,13);
+	    		minutes = rs.getString("dateheure").substring(14,16);
 	    		
-	    		
+	    		c.setDate(jour + "/" + mois + "/" + annee); 		
+	    		c.setHeure(heure + ":" + minutes);
 	    		
 	    		e.setId(rs.getInt("etat.id"));
 	    		e.setIntitule(rs.getString("etat.intitule"));
@@ -87,7 +96,7 @@ public class ConnexionBDD {
 	    		c.setId(rs.getInt("id"));
 	    		c.setIntitule(rs.getString("intitule"));
 	    		c.setDescription(rs.getString("description"));
-	    		c.setDateHeure(rs.getString("dateheure"));
+	    		c.setDate(rs.getString("dateheure"));
 	    		
 	    		e.setId(rs.getInt("etat.id"));
 	    		e.setIntitule(rs.getString("etat.intitule"));

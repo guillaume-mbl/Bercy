@@ -5,7 +5,8 @@ public class Concert {
 		private int id;
 		private String intitule;
 		private String description;
-		private String dateHeure;
+		private String date;
+		private String heure;
 		private Etat etat;
 		private Salle salle;
 		private String cheminImage;
@@ -29,11 +30,18 @@ public class Concert {
 		public void setDescription(String description) {
 			this.description = description;
 		}
-		public String getDateHeure() {
-			return dateHeure;
+		
+		public String getDate() {
+			return date;
 		}
-		public void setDateHeure(String dateHeure) {
-			this.dateHeure = dateHeure;
+		public void setDate(String date) {
+			this.date = date;
+		}
+		public String getHeure() {
+			return heure;
+		}
+		public void setHeure(String heure) {
+			this.heure = heure;
 		}
 		public Etat getEtat() {
 			return etat;
