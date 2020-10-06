@@ -141,8 +141,9 @@ form{
 .complet{
 	background-color: #ff1a1a !important;
 }
+
 .more-info{
-	background-color: #1abc9c; !important;
+	background-color: #1abc9c !important;
 }
 
 .report{
@@ -228,6 +229,7 @@ form{
 .footer-logo{
 	margin-top: 20px;
 }
+
 .footer-social-network p{
 	color:#1abc9c;
 	margin-top: 20px;

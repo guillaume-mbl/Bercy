@@ -17,6 +17,8 @@ import jdk.nashorn.internal.ir.ForNode;
 
 public class HomeServlet extends HttpServlet{
 
+	List<Concert> listeConcerts;
+	
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 		      throws ServletException, IOException {
 		
@@ -31,7 +33,7 @@ public class HomeServlet extends HttpServlet{
 			ConnexionBDD conn = new ConnexionBDD();
 			conn.seConnecter();
 			
-			List<Concert> listeConcerts = conn.recupConcerts();
+			listeConcerts = conn.recupConcerts();
 			
 			
 			req.setAttribute("listeConcerts", listeConcerts);
@@ -42,8 +44,43 @@ public class HomeServlet extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/Home.jsp" ).forward( req, res );	
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/index.jsp" ).forward( req, res );	
 
 	}
+	
+
+	 public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException, ServletException {
+		 try {
+				try {
+					Class.forName("com.mysql.jdbc.Driver");
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				if(request.getParameter("idConcert") != null) {
+					
+				
+				ConnexionBDD conn = new ConnexionBDD();
+				conn.seConnecter();
+				
+				listeConcerts = conn.recupConcerts();
+				
+				
+				request.setAttribute("listeConcerts", listeConcerts);
+				request.setAttribute("concertChoisi",conn.recupConcert(Integer.parseInt(request.getParameter("idConcert"))));
+			
+				}
+				
+				
+				this.getServletContext().getRequestDispatcher( "/WEB-INF/index.jsp" ).forward( request, response );	
+				
+		 	} catch (IOException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		 
+	 }
 
 }

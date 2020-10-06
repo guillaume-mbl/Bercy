@@ -22,7 +22,7 @@ public class ConnexionBDD {
 	    private String cheminFichierProperties;
 
 	    public ConnexionBDD() throws IOException, SQLException {
-	    this.cheminFichierProperties = "C:\\Users\\tarik\\git\\Bercy\\src\\SQL\\db.properties";
+	    this.cheminFichierProperties = "C:\\Users\\tarik\\eclipse-workspace\\Bercy\\src\\SQL\\db.properties";
 	    }
 
 	    public void seConnecter() throws SQLException, IOException {
@@ -58,6 +58,9 @@ public class ConnexionBDD {
 	    		c.setDescription(rs.getString("description"));
 	    		c.setDateHeure(rs.getString("dateheure"));
 	    		
+	    		
+	    		
+	    		
 	    		e.setId(rs.getInt("etat.id"));
 	    		e.setIntitule(rs.getString("etat.intitule"));
 	    		
@@ -69,6 +72,36 @@ public class ConnexionBDD {
 	    	return liste;
 	    	
 	    }
+
+		public Concert recupConcert(int idConcert) throws SQLException {
+			// TODO Auto-generated method stub
+			String query = "Select * from Concert inner join etat on concert.etat_id = etat.id where concert.id = "+ idConcert;
+			
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+	    	
+			while(rs.next()) {
+				Concert c = new Concert();
+	    		Etat e = new Etat();
+	    		
+	    		c.setCheminImage(rs.getString("image"));
+	    		c.setId(rs.getInt("id"));
+	    		c.setIntitule(rs.getString("intitule"));
+	    		c.setDescription(rs.getString("description"));
+	    		c.setDateHeure(rs.getString("dateheure"));
+	    		
+	    		e.setId(rs.getInt("etat.id"));
+	    		e.setIntitule(rs.getString("etat.intitule"));
+	    		
+	    		c.setEtat(e);
+	    		
+	    		return c;				
+			}
+	    	
+			
+			
+			return null;
+		}
+	    
 	    
 	    
 }
