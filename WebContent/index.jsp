@@ -249,14 +249,21 @@
 		<h3>La salle</h3>
 	</div>
 	<div class="row">
+	
+
+	
     <div class="col">
+    
+<div data-aos="fade-right">
+    
       Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+    </div>
     </div>
 	
     	<div class="col">
     		<div data-aos="fade-left">
-  			<img src="assets/img/salle.jpg" alt="error">
-    	</div>
+  				<img src="assets/img/salle.jpg" class="rounded" alt="error">
+    		</div>
     </div>
 </div>
 </section>
@@ -264,6 +271,9 @@
 <div class="container">
 	<div class="label-informations">
 		<h3>Infos pratiques</h3>
+	</div>
+	<div class="informations-content">
+	 <p>Compte tenu des informations communiquées par les autorités sanitaires, retrouvez ci-dessous ou dans la rubrique "actualités" (cliquez ici) toutes les informations actualisées concernant le report ou l'annulation de spectacle.</p>
 	</div>
 </div>
 </section>
@@ -281,11 +291,13 @@
       	<div class="body-content-modal">
      		 <p>Le phénomène marseillais Bande Organisée continue de tout rafler sur son passage et les premiers certifications commencent à tomber. 
 			 En effet, ll n'aura fallu que 25 jours aux rappeurs marseillais présents sur le titre de Jul Bande Organisé pour cumuler 30 millions de streams et ainsi décrocher la certification disque de platine. Rien que sur Youtube, le clip réunissant Sch, Kofs, Jul, Naps, Soso maness, Elams, Solda et Houari a été regardé plus de 47 millions de fois. La semaine dernière, les marseillais se sont même payés le luxe de squatter le top 100 monde Spotify. Selon Midi/Minuit, c'est la première fois dans le rap français qu'un single est certifié platine aussi rapidement devant Lettre à Une Femme de Ninho et Au DD de PNL.</p>
-			<div class="layout-detail">
+			 <div class="row">
+    <div class="col">
+      <div class="layout-detail rounded">
 				 <div class="title-detail">Tarif :</div>
 				 <div class="content-detail">
 					 <div class="row">
-						 Categorie A :
+						 A partir de :
 						 56 euros	
 					 </div>
 				 </div>
@@ -296,7 +308,25 @@
 						 Le 24/11/2020
 					 </div>
 				 </div>
+				 
 			</div>
+    </div>
+    <div class="col">
+    <div class="layout-detail rounded">
+     <div class="title-detail">Ecouter le derniere album :</div>
+		 		 <div class="content-detail">
+					 <div class="row">
+						 <a href="https://open.spotify.com/album/3FrSGEYwEQS2Qx9nPt5WUs?si=ZIVjLpwMS-WkKvZq_6GSIg"><i class="fab fa-spotify">
+				</i></a>
+					 </div>
+				 </div>
+				   <div class="title-detail">Artiste(s) :</div>
+				   <div class="content-detail artistt">
+				   	<span class="badge badge-info artist">Jul</span><span class="badge badge-info">Naps</span>
+				</div>
+				</div>
+    </div>
+
 		</div>
 		<div class="modal-footer">
         	<button type="button" class="btn-reservation btn btn-primary">Reserver</button>
@@ -304,6 +334,50 @@
     </div>
   </div>
 </div>
-<!-- ---------------------------------------------------------------------------------- -->
+</div>
+<div class="footer">
+	<div class="container-fluid">
+	<div class="container">
+	  <div class="row">
+	   
+      <div class="col-sm">
+	      
+	      <div class="footer-logo">
+	      	  <p>malayim'</p>
+		    
+		   </div>	
+	    </div>
+	    <div class="col-sm">
+	     <table class="table table-borderless">
+  			<thead>
+		  	</thead>
+		  <tbody>
+		    <tr>
+		      <td><a href="">Programmation</a></td>
+		    </tr>
+		    <tr>	     
+		      <td><a href="">La salle</a></td>
+		    </tr>
+		    <tr>	     
+		      <td><a href="">Infos pratiques</a></td>
+		    </tr>
+		  </tbody>
+		</table>
+	    </div>
+	    <div class="col-sm">
+	      <div class="row">
+	      <div class="footer-social-network ">
+	      	  <p>suivez-nous !</p>
+		      <i class="fab fa-facebook-f"></i>
+		      <i class="fab fa-twitter"></i>
+		   </div>	
+	      </div>
+	    </div>
+  </div>
+</div>
+			 
+	</div>
+</div>
+
 </body>
 </html>
