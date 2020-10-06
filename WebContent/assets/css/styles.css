@@ -12,6 +12,10 @@ h3{
 h4{
 	text-transform: uppercase;
 }
+a:hover{
+	text-decoration: none !important;
+}
+
 /*  NAVBAR */
 .first-nav{
 	background-color: #1abc9c;
@@ -40,11 +44,11 @@ h4{
 }
 /*  HEADER */
 #header{
-	/*background-color: #f2f0e9;*/
-	padding-left:5px !important;
+	background-color: #f2f0e9;
+	/*padding-left:5px !important;
 	background-image: url("../img/banner.png");
 	background-repeat: no-repeat;
-	height: 120px !important;
+	height: 120px !important;*/
 }
 .contact p{
 	margin-bottom: 0px;
@@ -89,6 +93,7 @@ h4{
 	text-align:center;
 	font-weight: bold;
 	text-transform: uppercase;
+	color: black;
 }
 .card-img-top{
 	height:140px;
@@ -98,13 +103,15 @@ form{
 }
 .card{
 	margin-bottom: 30px;
+	cursor:  pointer;
 }
-.card-body p{
+.concert-date p{
 	color: black !important;
-	text-decoration: none !important;
+	text-align: center;
+	margin-top: 20px;
 }
 .btn-state{
-	 border: 1px solid black;
+	
 	 text-transform: uppercase;
 	 display: inline-block;
 	 padding: 5px 50px;
@@ -112,11 +119,15 @@ form{
   	 bottom: 0;
   	 margin-bottom: 5px;
   	
+  	
 }
 .state a{
 	color: black !important;
 	text-decoration: none !important;
+	text-align: center;
 }
+
+
 .complet{
 	background-color: #ff1a1a !important;
 }
@@ -129,6 +140,29 @@ form{
 }
 .warn{
 	background-color: #4da6ff !important;
+}
+
+/*  MODAL */
+
+.modal-content img{
+	height: 300px;
+	margin: 10px;
+}
+.body-content-modal{
+	margin: 10px;
+}
+.layout-detail{
+	background-color:  #f2f2f2 ;
+	margin:30px;
+	padding: 30px;
+}
+
+.content-detail{
+	margin-left:30px;
+}
+
+.btn-reservation{
+	  text-transform: uppercase;
 }
 /*   CONCERT HALL */
 

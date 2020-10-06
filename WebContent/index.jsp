@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>MALAYIM'</title>
 </head>
 <body>
@@ -130,18 +130,18 @@
 	<div data-aos="fade-up">
 	<div class="row">
 	  <div class="col-md-3">	  
-	  <a href="#">
-	  	<div class="card">
-		  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
-		  	<div class="card-body">
-		  		<div class="concert-title">La Bande Organis�e tour</div>
-		    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-	  			<div class="state">
-	  				<a href="#" class="btn-state more-info" data-toggle="modal" data-target=".bd-example-modal-lg">Plus d'infos</a>
-	  			</div>
-	  		</div>
-		</div>
-		</a>
+		 
+		  	<div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
+			  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
+			  	<div class="card-body">
+			  		<div class="concert-title">La Bande Organisée tour</div>
+			    	<div class="concert-date"><p class="card-text">Le 24/11/2020</p></div>
+			  			<div class="state">
+			  				<a href="#" class="btn-state more-info">Plus d'infos</a>
+			  			</div>
+		  		</div>
+			</div>
+			
 	  </div>
 	  
 	  
@@ -194,7 +194,7 @@
 		  	<div class="card-body">
 		    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   			<div class="state">
-	  			<a href="#" class="btn-state warn">M'alert� !</a>
+	  			<a href="#" class="btn-state warn">M'alerté !</a>
 	  		</div>	
 	  		</div>
 		</div>
@@ -207,7 +207,7 @@
 		  	<div class="card-body">
 		    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 	  			<div class="state">
-	  				<a href="#" class="btn-state warn">M'alert� !</a>
+	  				<a href="#" class="btn-state warn">M'alerté !</a>
 	  			</div>	
 	  		</div>
 		</div>
@@ -220,7 +220,7 @@
 		  	<div class="card-body">
 		    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 	  			<div class="state">
-	  				<a href="#" class="btn-state warn">M'alert� !</a>
+	  				<a href="#" class="btn-state warn">M'alerté !</a>
 	  			</div>
 	  		</div>
 		</div>
@@ -233,7 +233,7 @@
 		  	<div class="card-body">
 		    	<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   				<div class="state">
-	  				<a href="#" class="btn-state warn">M'alert� !</a>
+	  				<a href="#" class="btn-state warn">M'alerté !</a>
 	  			</div>
 	  		</div>
 		</div>
@@ -252,8 +252,11 @@
     <div class="col">
       Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
     </div>
-    <div class="col">
-  <img src="assets/img/salle.jpg" alt="error">
+	
+    	<div class="col">
+    		<div data-aos="fade-left">
+  			<img src="assets/img/salle.jpg" alt="error">
+    	</div>
     </div>
 </div>
 </section>
@@ -264,14 +267,43 @@
 	</div>
 </div>
 </section>
-/************************* MODAL CONCERT ********************************************/
+<!---------------------------------------------  MODAL CONCERT ---------------------------------->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      ...
+    <div class="modal-header">
+        <h5 class="modal-title"><div class="concert-title">La Bande Organisée tour</div></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      	<img src="assets/img/bande_organisee.jpg" class="img-fluid" alt="Responsive image">
+      	<div class="body-content-modal">
+     		 <p>Le phénomène marseillais Bande Organisée continue de tout rafler sur son passage et les premiers certifications commencent à tomber. 
+			 En effet, ll n'aura fallu que 25 jours aux rappeurs marseillais présents sur le titre de Jul Bande Organisé pour cumuler 30 millions de streams et ainsi décrocher la certification disque de platine. Rien que sur Youtube, le clip réunissant Sch, Kofs, Jul, Naps, Soso maness, Elams, Solda et Houari a été regardé plus de 47 millions de fois. La semaine dernière, les marseillais se sont même payés le luxe de squatter le top 100 monde Spotify. Selon Midi/Minuit, c'est la première fois dans le rap français qu'un single est certifié platine aussi rapidement devant Lettre à Une Femme de Ninho et Au DD de PNL.</p>
+			<div class="layout-detail">
+				 <div class="title-detail">Tarif :</div>
+				 <div class="content-detail">
+					 <div class="row">
+						 Categorie A :
+						 56 euros	
+					 </div>
+				 </div>
+				 
+		 		 <div class="title-detail">Date :</div>
+		 		 <div class="content-detail">
+					 <div class="row">
+						 Le 24/11/2020
+					 </div>
+				 </div>
+			</div>
+		</div>
+		<div class="modal-footer">
+        	<button type="button" class="btn-reservation btn btn-primary">Reserver</button>
+      	</div>
     </div>
   </div>
 </div>
-/************************************************************************************/
+<!-- ---------------------------------------------------------------------------------- -->
 </body>
 </html>
