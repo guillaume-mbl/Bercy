@@ -4,8 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
+
+import com.Bercy.Beans.Concert;
+import com.Bercy.Beans.Etat;
 
 public class ConnexionBDD {
 	 	
@@ -34,4 +40,35 @@ public class ConnexionBDD {
 	    public Connection getMaConnexion() {
 	        return maConnexion;
 	    }
+	    
+	    public List<Concert> recupConcerts() throws SQLException{
+	    	String query = "Select concert.*, etat.id, etat.intitule from concert inner join etat on concert.etat_id = etat.id order by dataheure desc";
+	    	
+	    	ResultSet rs = maConnexion.createStatement().executeQuery(query);
+	    	
+	    	List<Concert> liste = new ArrayList<Concert>();
+	    	
+	    	while(rs.next()) {
+	    		Concert c = new Concert();
+	    		Etat e = new Etat();
+	    		
+	    		c.setCheminImage(rs.getString("image"));
+	    		c.setId(rs.getInt("id"));
+	    		c.setIntitule(rs.getString("intitule"));
+	    		c.setDescription(rs.getString("description"));
+	    		c.setDateHeure(rs.getString("dateheure"));
+	    		
+	    		e.setId(rs.getInt("etat.id"));
+	    		e.setIntitule(rs.getString("etat.intitule"));
+	    		
+	    		c.setEtat(e);
+	    		
+	    		liste.add(c);	    			    		
+	    	}    	
+	    	
+	    	return liste;
+	    	
+	    }
+	    
+	    
 }

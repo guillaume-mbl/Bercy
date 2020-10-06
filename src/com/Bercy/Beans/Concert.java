@@ -11,6 +11,12 @@ public class Concert {
 		private String cheminImage;
 		
 		
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
 		public String getIntitule() {
 			return intitule;
 		}
