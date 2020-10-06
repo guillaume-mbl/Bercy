@@ -37,6 +37,7 @@ public class HomeServlet extends HttpServlet{
 			
 			
 			req.setAttribute("listeConcerts", listeConcerts);
+			req.setAttribute("listePrix",conn.recupPrixMinis());
 			
 			
 		} catch (IOException | SQLException e) {
@@ -50,36 +51,7 @@ public class HomeServlet extends HttpServlet{
 	
 
 	 public void doPost( HttpServletRequest request, HttpServletResponse response ) throws IOException, ServletException {
-		 try {
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				if(request.getParameter("idConcert") != null) {
-					
-				
-				ConnexionBDD conn = new ConnexionBDD();
-				conn.seConnecter();
-				
-				listeConcerts = conn.recupConcerts();
-				
-				
-				request.setAttribute("listeConcerts", listeConcerts);
-				request.setAttribute("concertChoisi",conn.recupConcert(Integer.parseInt(request.getParameter("idConcert"))));
-			
-				}
-				
-				
-				this.getServletContext().getRequestDispatcher( "/WEB-INF/index.jsp" ).forward( request, response );	
-				
-		 	} catch (IOException | SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
+		 
 		 
 	 }
 

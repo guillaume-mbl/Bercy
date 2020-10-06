@@ -10,8 +10,15 @@ public class Concert {
 		private Etat etat;
 		private Salle salle;
 		private String cheminImage;
+		private String urlAlbum;
 		
 		
+		public String getUrlAlbum() {
+			return urlAlbum;
+		}
+		public void setUrlAlbum(String urlAlbum) {
+			this.urlAlbum = urlAlbum;
+		}
 		public int getId() {
 			return id;
 		}

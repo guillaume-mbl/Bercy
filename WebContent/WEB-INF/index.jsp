@@ -145,11 +145,11 @@
 	  	  		int i = 1;
 	  	  		for(Concert c: list){
 	  	  			out.print("<div class=\"col-md-3\">");
-	  	  			out.print("<div class=\"card\" id="+c.getId()+" data-toggle=\"modal\" data-target=\".bd-example-modal-lg\" onclick =\"changerTexte("+c.getId()+")\">");
+	  	  			out.print("<div class=\"card\" id="+c.getId()+" data-toggle=\"modal\" data-target=\"#modalInfos"+c.getId()+"\" >");
 	  	  			out.print("<img class=\"card-img-top\" src="+c.getCheminImage()+" alt=\"Card image cap\">");
 	  	  			out.print("<div class=\"card-body\">");
 		  	  		out.print("<div class=\"concert-title\">"+c.getIntitule()+"</div>");
-		  	  		
+		  	  	
 		  	  				  	  		
 			  	  	out.print("<div class=\"concert-date\"><p class=\"card-text\">Le "+c.getDate()+" à " +c.getHeure()+"</p></div>");
 			  	  	out.print("<div class=\"state\">");
@@ -208,6 +208,86 @@
 </div>
 </section>
 <!---------------------------------------------  MODAL CONCERT ---------------------------------->
+<%
+	List<Tarif> listePrix = (ArrayList<Tarif>)request.getAttribute("listePrix");
+	
+	for(Concert c : list){
+		out.print("<div class=\"modal fade bd-example-modal-lg\" id=\"modalInfos"+c.getId()+"\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myLargeModalLabel\" aria-hidden=\"true\">+"+
+		"<div class=\"modal-dialog modal-lg\">"+
+	    "<div class=\"modal-content\">"+
+	    "<div class=\"modal-header\">");
+		out.print("<h5 class=\"modal-title\"><div class=\"concert-title\">"+c.getIntitule()+"</div></h5>");
+		out.print("<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">"+
+		          "<span aria-hidden=\"true\">&times;</span>"+
+		          "</button>"+
+		          "</div>");
+		out.print("<img src=\""+c.getCheminImage()+"\" class=\"img-fluid\" alt=\"Responsive image\">");
+		out.print("<div class=\"body-content-modal\">");
+		out.print("<p>"+c.getDescription()+"</p");
+		out.print("<div class=\"row\">");
+		out.print("<div class=\"layout-detail rounded\">");
+		out.print("<div class=\"title-detail\">Tarif :</div>");
+		out.print("<div class=\"row\">");
+		out.print("<div class=\"row\">");
+		
+		System.out.println("ok"+c.getId());
+		if(listePrix != null){
+
+			for(Tarif t : listePrix){
+				
+				if(t.getConcert().getId() == c.getId()){
+					out.print("<div class=\"content-detail\">"+
+							 "<div class=\"row\">"+
+					 		"A partir de :"+
+					 			t.getPrix() + " euros"+
+				 			"</div>"+
+							"</div>");
+				}
+				
+			}
+		
+		}
+		out.print("<div class=\"title-detail\">Date :</div>"+
+		 "<div class=\"content-detail\">"+
+			 "<div class=\"row\">"+
+				 "Le " + c.getDate() +
+			 "</div>"+
+		 "</div>"+
+		 "</div>"+
+		 "</div>");
+		
+		
+		out.print("<div class=\"col\">"+
+			    "<div class=\"layout-detail rounded\">"+
+	     "<div class=\"title-detail\">Ecouter le dernier album :</div>"+
+			    "<div class=\"content-detail\">"+
+				 "<div class=\"row\">");
+		System.out.println(c.getUrlAlbum());
+		out.print("<a href=\""+c.getUrlAlbum()+"\"<i class=\"fab fa-spotify\">"+
+				"</i></a>"+
+				 "</div>");
+		
+		out.print("</div>"+
+				   "<div class=\"title-detail\">Artiste(s) :</div>"+
+				   "<div class=\"content-detail artistt\">"+
+				   	"<span class=\"badge badge-info artist\">Artiste1</span><span class=\"badge badge-info\">Artiste2</span>"+
+				"</div>"+
+				"</div>"+
+ 				"</div>");
+		
+		out.print("</div>"+
+				"<div class=\"modal-footer\">"+
+	        	"<button type=\"button\" class=\"btn-reservation btn btn-primary\">Reserver</button>"+
+		      	"</div>"+
+		    	"</div>"+
+		  		"</div>"+
+				"</div>"+
+				"</div>");
+		
+	}
+
+%>
+<!-- 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -243,7 +323,7 @@
     </div>
     <div class="col">
     <div class="layout-detail rounded">
-     <div class="title-detail">Ecouter le derniere album :</div>
+     <div class="title-detail">Ecouter le dernier album :</div>
 		 		 <div class="content-detail">
 					 <div class="row">
 						 <a href="https://open.spotify.com/album/3FrSGEYwEQS2Qx9nPt5WUs?si=ZIVjLpwMS-WkKvZq_6GSIg"><i class="fab fa-spotify">
@@ -265,6 +345,7 @@
   </div>
 </div>
 </div>
+-->
 <div class="footer">
 	<div class="container-fluid">
 	<div class="container">
@@ -308,6 +389,8 @@
 			 
 	</div>
 </div>
+
+
 
 </body>
 </html></html>

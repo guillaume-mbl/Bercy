@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import com.Bercy.Beans.Categorie;
 import com.Bercy.Beans.Concert;
 import com.Bercy.Beans.Etat;
+import com.Bercy.Beans.Tarif;
 
 public class ConnexionBDD {
 	 	
@@ -67,6 +69,7 @@ public class ConnexionBDD {
 	    		heure = rs.getString("dateheure").substring(11,13);
 	    		minutes = rs.getString("dateheure").substring(14,16);
 	    		
+	    		c.setUrlAlbum(rs.getString("spotify"));
 	    		c.setDate(jour + "/" + mois + "/" + annee); 		
 	    		c.setHeure(heure + ":" + minutes);
 	    		
@@ -98,6 +101,8 @@ public class ConnexionBDD {
 	    		c.setDescription(rs.getString("description"));
 	    		c.setDate(rs.getString("dateheure"));
 	    		
+	    		c.setUrlAlbum(rs.getString("spotify"));
+	    		
 	    		e.setId(rs.getInt("etat.id"));
 	    		e.setIntitule(rs.getString("etat.intitule"));
 	    		
@@ -111,6 +116,50 @@ public class ConnexionBDD {
 			return null;
 		}
 	    
+		public List<Tarif> recupPrixMinis() throws SQLException{
+			String query = "select round(min(prix),2) as prix, concert_id from concert_categorie group by concert_id";
+			
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+
+			List<Tarif> liste = new ArrayList<Tarif>();
+			
+			while(rs.next()) {
+				Tarif t = new Tarif();
+				t.setPrix(rs.getFloat("prix"));
+								
+				Concert concert = new Concert();
+				concert.setId(rs.getInt("concert_id"));
+				
+				t.setConcert(concert);
+				
+				System.out.println(t.getPrix() + " " + t.getConcert().getId());
+				liste.add(t);
+			}
+			
+			
+			return liste;
+			
+		}
+		
+		public List<Categorie> recupCategories() throws SQLException{
+			String query = "select * from categorie";
+			
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+
+			List<Categorie> liste = new ArrayList<Categorie>();
+			
+			while(rs.next()) {
+				
+				Categorie c = new Categorie();
+				c.setIdCategorie(rs.getInt("categorie.id"));
+				c.setIntitule(rs.getString("categorie.intitule"));
+				
+				
+				liste.add(c);
+			}
+			return liste;
+			
+		}
 	    
 	    
 }
