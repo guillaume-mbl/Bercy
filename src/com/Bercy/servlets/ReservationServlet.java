@@ -70,6 +70,7 @@ public class ReservationServlet extends HttpServlet{
 				ConnexionBDD conn = new ConnexionBDD();
 				conn.seConnecter();
 				
+				boolean aChoisiPlace = false;
 				
 				Concert c = conn.recupConcert(Integer.parseInt(request.getParameter("idConcert")));
 				List<Tarif> listeTarifs = conn.recupTarifs(Integer.parseInt(request.getParameter("idConcert")));
@@ -78,25 +79,38 @@ public class ReservationServlet extends HttpServlet{
 				
 				System.out.println(prixTotal);
 				
-				String numResa = conn.ajouterReservation(request.getParameter("nom"),request.getParameter("prenom"),request.getParameter("email"),Integer.parseInt(request.getParameter("idConcert")));
-				
-				Reservation r = conn.recupReservation(numResa);
-				
-				
 				for(Tarif t : listeTarifs) {
-					prixTotal += Integer.parseInt(request.getParameter(c.getId()+"_"+t.getCat().getIntitule())) * conn.getPrix(c.getId(), t.getCat().getIntitule());
-					
-					for(int i = 0; i<Integer.parseInt(request.getParameter(c.getId()+"_"+t.getCat().getIntitule()));i++) {
-						conn.ajoutePlace(r.getId(),r.getConcert().getId(), t.getCat().getIdCategorie());
+					if(t.getRestant()>0) {
+						if(Integer.parseInt(request.getParameter(c.getId()+"_"+t.getCat().getIntitule()))>0) {
+							aChoisiPlace = true;
+							break;
+						}
 					}
-					
 				}
 				
-				request.setAttribute("places", conn.recupPlaces(r));				
-				request.setAttribute("reservation", r);	
-				request.setAttribute("tarifs", listeTarifs);
-				
-				this.getServletContext().getRequestDispatcher( "/WEB-INF/recap.jsp" ).forward( request, response );	
+				if( aChoisiPlace == true) {
+					String numResa = conn.ajouterReservation(request.getParameter("nom"),request.getParameter("prenom"),request.getParameter("email"),Integer.parseInt(request.getParameter("idConcert")));
+					
+					Reservation r = conn.recupReservation(numResa);
+					
+					
+					for(Tarif t : listeTarifs) {
+						if(t.getRestant() > 0) {
+							prixTotal += Integer.parseInt(request.getParameter(c.getId()+"_"+t.getCat().getIntitule())) * conn.getPrix(c.getId(), t.getCat().getIntitule());
+							
+							for(int i = 0; i<Integer.parseInt(request.getParameter(c.getId()+"_"+t.getCat().getIntitule()));i++) {
+								conn.ajoutePlace(r.getId(),r.getConcert().getId(), t.getCat().getIdCategorie());
+							}
+						}
+						
+					}
+					
+					request.setAttribute("places", conn.recupPlaces(r));				
+					request.setAttribute("reservation", r);	
+					request.setAttribute("tarifs", listeTarifs);
+					
+					this.getServletContext().getRequestDispatcher( "/WEB-INF/recap.jsp" ).forward( request, response );	
+				}
 				
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block

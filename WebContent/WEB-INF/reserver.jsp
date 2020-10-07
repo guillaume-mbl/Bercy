@@ -30,7 +30,7 @@
     <div class="contact">
 	    <p class="text-left"><i class="fas fa-phone"></i> 02 43 40 70 00</p>
 	    <p class="text-left"><i class="fas fa-ticket-alt"></i> 09 70 25 22 12</p>
-	    <p class="text-left"><i class="fas fa-envelope"></i> info@antareslemans.com </p>		  
+	    <p class="text-left"><i class="fas fa-envelope"></i> info@malayim.com </p>		  
     </div>
     </div>
     <div class="col-sm">
@@ -49,16 +49,16 @@
 </section>
 <ul class="nav first-nav justify-content-center">
   <li class="nav-item">
-    <a class="nav-link" href="index.jsp">Accueil</a>
+    <a class="nav-link" href="./home">Accueil</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="index.jsp#concert">Programmation</a>
+    <a class="nav-link" href="./home#concert">Programmation</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="index.jsp#concert-hall">La salle</a>
+    <a class="nav-link" href="./home#concert-hall">La salle</a>
   </li>
    <li class="nav-item">
-    <a class="nav-link" href="index.jsp#informations">Infos pratiques</a>
+    <a class="nav-link" href="./home#informations">Infos pratiques</a>
   </li>
 </ul>
 
@@ -68,6 +68,10 @@
 	<%
 		Concert c = (Concert)request.getAttribute("Concert");
 	
+
+		boolean estReservable = c.getEtat().getIntitule().equalsIgnoreCase("DISPONIBLE");
+		
+		if(estReservable){
 		out.print("<img class=\"img-fluid rounded mt-3 mb-3\" src=\""+c.getCheminImage()+"\" />");
 		out.print("<h5>"+c.getIntitule()+"</h5>");
 		out.print("<p>"+c.getDescription()+"</p>");
@@ -80,7 +84,7 @@
 		<table class="table table-dark text-center">
 			<thead>
 				<tr>
-					<th scope="col">Catégorie</th>
+					<th scope="col">Cat&eacute;gorie</th>
 					<th scope="col">Prix/place</th>
 					<th scope="col">Places</th>
 				</tr>
@@ -90,23 +94,25 @@
 			<%
 				List<Tarif> listTarifs = (ArrayList<Tarif>)request.getAttribute("Tarifs");
 				int maxPlace=10;
-				out.print("<input type=\"text\" class=\"form-control\" id=\"idConcert\" placeholder=\"ID\" name=\"idConcert\" value=\""+
+				out.print("<input type=\"hidden\" class=\"form-control\" id=\"idConcert\" placeholder=\"ID\" name=\"idConcert\" value=\""+
 		      			c.getId()+"\" readonly>");
 				
 				for(Tarif t : listTarifs){
-					out.print("<tr>");
-					out.print("<td>"+t.getCat().getIntitule()+"</td>");
-					out.print("<td>"+t.getPrix()+" €</td>");
-					out.print("<td>");
-					out.print("<select class=\"form-control\" required name=\""+c.getId()+"_"+t.getCat().getIntitule()+"\">");
-					if(t.getRestant()<10){
-						maxPlace = t.getRestant();
+					if(t.getRestant()>0){
+						out.print("<tr>");
+						out.print("<td>"+t.getCat().getIntitule()+"</td>");
+						out.print("<td>"+t.getPrix()+" &euro;</td>");
+						out.print("<td>");
+						out.print("<select class=\"form-control\" required name=\""+c.getId()+"_"+t.getCat().getIntitule()+"\">");
+						if(t.getRestant()<10){
+							maxPlace = t.getRestant();
+						}
+						for(int i=0;i<=maxPlace;i++){
+							out.print("<option value=\""+i+"\">"+i+"</option>");
+						}
+						out.print("</select>");
+						out.print("</td></tr>");
 					}
-					for(int i=0;i<=maxPlace;i++){
-						out.print("<option value=\""+i+"\">"+i+"</option>");
-					}
-					out.print("</select>");
-					out.print("</td></tr>");
 					
 				}
 			
@@ -134,7 +140,9 @@
 
 		<button type="submit" name="submit" class="btn btn-primary mb-3">RESERVER</button>
 	</form>
-
+	<%
+		}
+	%>
 	
 		
 	

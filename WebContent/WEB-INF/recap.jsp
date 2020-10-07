@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Votre réservation</title>
+<title>Votre r&eacute;servation</title>
 </head>
 <body>
     <link href="assets/css/styles.css" rel="stylesheet">
@@ -26,13 +26,13 @@
     
   <section id="reservation">
     <div class="container">
-        <center><h2>Récapatulatif :</h2></center> 
+        <center><h2>R&eacute;capitulatif :</h2></center> 
         <%
         	Reservation r = (Reservation)request.getAttribute("reservation");
         
         %>
         <div class="alert alert-primary" role="alert">
-            Vous receverez un mail de confirmation à  l'addresse suivante : <% out.print(r.getEmail()); %>
+            Vous recevrez un mail de confirmation &agrave; l'adresse suivante : <% out.print(r.getEmail()); %>
         </div>
           <div class="row recap">
             <div class="col-sm">
@@ -43,14 +43,14 @@
               
             </div>
             <div class="col-sm">
-                 <p class="titile2">Numero de réservation : <% out.print(r.getNumero()); %></p>
+                 <p class="titile2">Numero de r&eacute;servation : <% out.print(r.getNumero()); %></p>
             </div>
             </div>
         
         <table class="table table-recap">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Catégorie</th>
+              <th scope="col">Cat&eacute;gorie</th>
               <th scope="col">Nombre</th>
               <th scope="col">Total</th>
              
@@ -65,7 +65,7 @@
     	  out.print("<tr>");
     	  out.print("<td>"+p.getTarif().getCat().getIntitule()+"</td>");
     	  out.print("<td>"+p.getNbPlace()+"</td>");
-    	  out.print("<td>"+p.getTarif().getPrix()*p.getNbPlace() +" €</td>");
+    	  out.print("<td>"+p.getTarif().getPrix()*p.getNbPlace() +" &euro;</td>");
     	  out.print("</tr>");
     	  prixTotal += p.getTarif().getPrix()*p.getNbPlace();
       }
@@ -88,7 +88,7 @@
               <th scope="col"></th>
               <th scope="col"></th>
               <%
-              	out.print("<th scope=\"col\">"+ prixTotal +" €</th>");
+              	out.print("<th scope=\"col\">"+ prixTotal +" &euro;</th>");
               %>
               
              
@@ -100,7 +100,7 @@
         
         
 
-<center><a href="./home"><button type="button" class="btn btn-light btn-comeback">Retourner Ã  l'accueil</button></a></center>
+<center><a href="./home"><button type="button" class="btn btn-light btn-comeback">Retourner &agrave; l'accueil</button></a></center>
     </div>
     
  </section>

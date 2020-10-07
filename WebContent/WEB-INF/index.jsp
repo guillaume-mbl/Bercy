@@ -1,5 +1,5 @@
 <%@page import="com.sun.org.apache.xalan.internal.xsltc.compiler.util.CompareGenerator"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
     
 <%@page import="com.Bercy.Beans.*"%>
@@ -30,7 +30,7 @@
     <div class="contact">
 	    <p class="text-left"><i class="fas fa-phone"></i> 02 43 40 70 00</p>
 	    <p class="text-left"><i class="fas fa-ticket-alt"></i> 09 70 25 22 12</p>
-	    <p class="text-left"><i class="fas fa-envelope"></i> info@antareslemans.com </p>		  
+	    <p class="text-left"><i class="fas fa-envelope"></i> info@malayim.com </p>		  
     </div>
     </div>
     <div class="col-sm">
@@ -153,12 +153,14 @@
 		  	  				  	  		
 			  	  	out.print("<div class=\"concert-date\"><p class=\"card-text\">Le "+c.getDate()+" à " +c.getHeure()+"</p></div>");
 			  	  	out.print("<div class=\"state\">");
-			  	  	if( c.getEtat().getIntitule().equalsIgnoreCase("OUVERT") == true){
-			  	  		out.print("<a href=\"#\" class=\"btn-state more-info\">PLUS D'INFOS</a>");
-				  	}else if (c.getEtat().getIntitule().equalsIgnoreCase("REPORTE") == false){
-				  		out.print("<a href=\"#\" class=\"btn-state report\">"+c.getEtat().getIntitule()+"</a>");
-				  	}else if (c.getEtat().getIntitule().equalsIgnoreCase("COMPLET") == false){
-				  		out.print("<a href=\"#\" class=\"btn-state complet\">"+c.getEtat().getIntitule()+"</a>");
+			  	  	if( c.getEtat().getIntitule().equalsIgnoreCase("DISPONIBLE") == true){
+			  	  		out.print("<center><span class=\"badge badge-success\">PLUS D'INFOS</span></center>");
+				  	}else if (c.getEtat().getIntitule().equalsIgnoreCase("REPORTÉ") == true){
+				  		out.print("<center><span class=\"badge badge-warning\">"+c.getEtat().getIntitule()+"</span></center>");
+				  	}else if (c.getEtat().getIntitule().equalsIgnoreCase("COMPLET") == true){
+				  		out.print("<center><span class=\"badge badge-danger\">"+c.getEtat().getIntitule()+"</span></center>");
+			  	  	}else if (c.getEtat().getIntitule().equalsIgnoreCase("ANNULÉ") == true){
+				  		out.print("<center><span class=\"badge badge-dark\" style=\"color:white;\">"+c.getEtat().getIntitule()+"</span></center>");
 			  	  	}
 				  	out.print("</div>");
 				  	out.print("</div>");
@@ -221,14 +223,17 @@
 		          "<span aria-hidden=\"true\">&times;</span>"+
 		          "</button>"+
 		          "</div>");
-		out.print("<img src=\""+c.getCheminImage()+"\" class=\"img-fluid\" alt=\"Responsive image\">");
+		out.print("<center><img src=\""+c.getCheminImage()+"\"  alt=\"Responsive image\"></center>");
 		out.print("<div class=\"body-content-modal\">");
 		out.print("<p>"+c.getDescription()+"</p");
+		
+
 		out.print("<div class=\"row\">");
+		
+		
+		
 		out.print("<div class=\"layout-detail rounded\">");
 		out.print("<div class=\"title-detail\">Tarif :</div>");
-		out.print("<div class=\"row\">");
-		out.print("<div class=\"row\">");
 		
 		System.out.println("ok"+c.getId());
 		if(listePrix != null){
@@ -238,50 +243,58 @@
 				if(t.getConcert().getId() == c.getId()){
 					out.print("<div class=\"content-detail\">"+
 							 "<div class=\"row\">"+
-					 		"A partir de :"+
-					 			t.getPrix() + " euros"+
-				 			"</div>"+
+					 		"A partir de : "+
+					 			t.getPrix() + " &euro; "+
+					 		"</div>"+
 							"</div>");
 				}
 				
 			}
 		
 		}
+		out.print("</div>");
+		out.print("<div class=\"layout-detail rounded\">");
+		
 		out.print("<div class=\"title-detail\">Date :</div>"+
 		 "<div class=\"content-detail\">"+
 			 "<div class=\"row\">"+
 				 "Le " + c.getDate() +
 			 "</div>"+
 		 "</div>"+
-		 "</div>"+
+		
 		 "</div>");
 		
 		
-		out.print("<div class=\"col\">"+
-			    "<div class=\"layout-detail rounded\">"+
+		
+		out.print("<div class=\"layout-detail rounded\">"+
 	     "<div class=\"title-detail\">Ecouter le dernier album :</div>"+
 			    "<div class=\"content-detail\">"+
 				 "<div class=\"row\">");
 		System.out.println(c.getUrlAlbum());
 		out.print("<a href=\""+c.getUrlAlbum()+"\"<i class=\"fab fa-spotify\">"+
 				"</i></a>"+
+				"</div>"+
+				"</div>"+
 				 "</div>");
 		
-		out.print("</div>"+
+		out.print("<div class=\"layout-detail rounded\">"+
 				   "<div class=\"title-detail\">Artiste(s) :</div>"+
 				   "<div class=\"content-detail artistt\">"+
 				   	"<span class=\"badge badge-info artist\">Artiste1</span><span class=\"badge badge-info\">Artiste2</span>"+
-				"</div>"+
-				"</div>"+
- 				"</div>");
+				   			"</div>"+
+				"</div>");
 		
+		out.print("</div>");
+		
+		if(c.getEtat().getIntitule().equalsIgnoreCase("DISPONIBLE") == true){
+			out.print("<div class=\"modal-footer\">"+
+					"<a href=\"./reserver?id="+c.getId()+"\""+
+		        	"<button type=\"button\" class=\"btn-reservation btn btn-primary\">Reserver</button>"+
+					"</a>"+
+			      	"</div>"
+			    	);
+		}
 		out.print("</div>"+
-				"<div class=\"modal-footer\">"+
-				"<a href=\"./reserver?id="+c.getId()+"\""+
-	        	"<button type=\"button\" class=\"btn-reservation btn btn-primary\">Reserver</button>"+
-				"</a>"+
-		      	"</div>"+
-		    	"</div>"+
 		  		"</div>"+
 				"</div>"+
 				"</div>");

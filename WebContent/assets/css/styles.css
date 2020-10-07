@@ -8,6 +8,12 @@ section{
 	padding-bottom:20px;
 }
 
+.state span{
+	text-transform: uppercase;
+	text-align:center;
+	margin-top:30px;
+}
+
 h3{
 	font-family: 'PT Sans', sans-serif;
 	text-transform: uppercase;
