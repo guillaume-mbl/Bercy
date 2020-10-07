@@ -92,9 +92,11 @@ public class ReservationServlet extends HttpServlet{
 					
 				}
 				
+				request.setAttribute("places", conn.recupPlaces(r));				
+				request.setAttribute("reservation", r);	
+				request.setAttribute("tarifs", listeTarifs);
 				
-				
-				
+				this.getServletContext().getRequestDispatcher( "/WEB-INF/recap.jsp" ).forward( request, response );	
 				
 			} catch (IOException | SQLException e) {
 				// TODO Auto-generated catch block

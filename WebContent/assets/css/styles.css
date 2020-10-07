@@ -246,3 +246,27 @@ form{
 	text-transform: uppercase;
 	font-size: 40px;	
 }
+
+.btn-comeback{
+    margin-top: 100px;
+}
+.table .thead-dark th{
+    text-align: center !important;
+}
+
+.table td{
+    text-align: center !important;
+}
+
+.alert{
+    margin: 20px;
+}
+
+.layout-recap{
+    margin-right: 10px;
+}
+.recap p{
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}

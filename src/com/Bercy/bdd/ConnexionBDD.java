@@ -14,6 +14,7 @@ import java.util.Random;
 import com.Bercy.Beans.Categorie;
 import com.Bercy.Beans.Concert;
 import com.Bercy.Beans.Etat;
+import com.Bercy.Beans.Place;
 import com.Bercy.Beans.Reservation;
 import com.Bercy.Beans.Tarif;
 
@@ -268,6 +269,44 @@ public class ConnexionBDD {
 			
 			maConnexion.createStatement().execute(query);
 					
+			query = "UPDATE concert_categorie set restant = restant-1 where categorie_id = "+idCategorie+" and concert_id = "+idConcert;
+		
+			maConnexion.createStatement().executeUpdate(query);
+		}
+		
+		public List<Place> recupPlaces(Reservation r) throws SQLException{
+			String query = "Select COUNT(*) as nbPlaces, place.categorie_id, prix, categorie.intitule from place "
+					+ "inner join reservation on reservation_id = reservation.id "
+					+ "inner join concert_categorie on concert_categorie.concert_id = reservation.concert_id "
+					+ "and concert_categorie.categorie_id = place.categorie_id "
+					+ "inner join categorie on categorie.id = place.categorie_id "
+					+ "where reservation_id = '"+r.getId()+"'"
+					+ " group by categorie_id";
+			
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+			
+			List<Place> listePlaces = new ArrayList<Place>();
+			
+			while(rs.next()) {
+				Place p = new Place();
+				p.setResa(r);
+				p.setNbPlace(rs.getInt("nbPlaces"));
+				
+				Categorie c = new Categorie();
+				c.setIntitule(rs.getString("categorie.intitule"));
+				c.setIdCategorie(rs.getInt("place.categorie_id"));
+				
+				Tarif t = new Tarif();
+				t.setPrix(rs.getFloat("prix"));
+				t.setCat(c);
+				
+				p.setTarif(t);
+				
+				listePlaces.add(p);
+				
+			}
+			
+			return listePlaces;
 		}
 		
 		

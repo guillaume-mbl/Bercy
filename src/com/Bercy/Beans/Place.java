@@ -5,9 +5,23 @@ public class Place {
 	private int id;
 	private int numero;
 	private String dateHeure;
-	Reservation resa;
+	private Reservation resa;
+	private Tarif tarif;
+	private int nbPlace;
 	
 	
+	public int getNbPlace() {
+		return nbPlace;
+	}
+	public void setNbPlace(int nbPlace) {
+		this.nbPlace = nbPlace;
+	}
+	public Tarif getTarif() {
+		return tarif;
+	}
+	public void setTarif(Tarif t) {
+		this.tarif = t;
+	}
 	public int getId() {
 		return id;
 	}
