@@ -27,7 +27,7 @@ public class ConnexionBDD {
 	    private String cheminFichierProperties;
 
 	    public ConnexionBDD() throws IOException, SQLException {
-	    this.cheminFichierProperties = "C:\\Users\\tarik\\eclipse-workspace\\Bercy\\src\\SQL\\db.properties";
+	    this.cheminFichierProperties = "C:\\Users\\guill\\git\\Bercy\\src\\SQL\\db.properties";
 	    }
 
 	    public void seConnecter() throws SQLException, IOException {

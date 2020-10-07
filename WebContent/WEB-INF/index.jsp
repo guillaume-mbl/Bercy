@@ -1,5 +1,5 @@
 <%@page import="com.sun.org.apache.xalan.internal.xsltc.compiler.util.CompareGenerator"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="ISO-8859-1"%>
     
 <%@page import="com.Bercy.Beans.*"%>
@@ -151,7 +151,7 @@
 		  	  		out.print("<div class=\"concert-title\">"+c.getIntitule()+"</div>");
 		  	  	
 		  	  				  	  		
-			  	  	out.print("<div class=\"concert-date\"><p class=\"card-text\">Le "+c.getDate()+" à " +c.getHeure()+"</p></div>");
+			  	  	out.print("<div class=\"concert-date\"><p class=\"card-text\">Le "+c.getDate()+" Ã  " +c.getHeure()+"</p></div>");
 			  	  	out.print("<div class=\"state\">");
 			  	  	if( c.getEtat().getIntitule().equalsIgnoreCase("OUVERT") == true){
 			  	  		out.print("<a href=\"#\" class=\"btn-state more-info\">PLUS D'INFOS</a>");
@@ -203,7 +203,7 @@
 		<h3>Infos pratiques</h3>
 	</div>
 	<div class="informations-content">
-	 <p>Compte tenu des informations communiquées par les autorités sanitaires, retrouvez ci-dessous ou dans la rubrique "actualités" (cliquez ici) toutes les informations actualisées concernant le report ou l'annulation de spectacle.</p>
+	 <p>Compte tenu des informations communiquÃ©es par les autoritÃ©s sanitaires, retrouvez ci-dessous ou dans la rubrique "actualitÃ©s" (cliquez ici) toutes les informations actualisÃ©es concernant le report ou l'annulation de spectacle.</p>
 	</div>
 </div>
 </section>
@@ -221,14 +221,17 @@
 		          "<span aria-hidden=\"true\">&times;</span>"+
 		          "</button>"+
 		          "</div>");
-		out.print("<img src=\""+c.getCheminImage()+"\" class=\"img-fluid\" alt=\"Responsive image\">");
+		out.print("<center><img src=\""+c.getCheminImage()+"\"  alt=\"Responsive image\"></center>");
 		out.print("<div class=\"body-content-modal\">");
 		out.print("<p>"+c.getDescription()+"</p");
+		
+
 		out.print("<div class=\"row\">");
+		
+		
+		
 		out.print("<div class=\"layout-detail rounded\">");
 		out.print("<div class=\"title-detail\">Tarif :</div>");
-		out.print("<div class=\"row\">");
-		out.print("<div class=\"row\">");
 		
 		System.out.println("ok"+c.getId());
 		if(listePrix != null){
@@ -238,42 +241,45 @@
 				if(t.getConcert().getId() == c.getId()){
 					out.print("<div class=\"content-detail\">"+
 							 "<div class=\"row\">"+
-					 		"A partir de :"+
-					 			t.getPrix() + " euros"+
-				 			"</div>"+
+					 		"A partir de : "+
+					 			t.getPrix() + " &euro; "+
+					 		"</div>"+
 							"</div>");
 				}
 				
 			}
 		
 		}
+		out.print("</div>");
+		out.print("<div class=\"layout-detail rounded\">");
+		
 		out.print("<div class=\"title-detail\">Date :</div>"+
 		 "<div class=\"content-detail\">"+
 			 "<div class=\"row\">"+
 				 "Le " + c.getDate() +
 			 "</div>"+
-		 "</div>"+
-		 "</div>"+
+		
 		 "</div>");
 		
 		
-		out.print("<div class=\"col\">"+
-			    "<div class=\"layout-detail rounded\">"+
+		
+		out.print("<div class=\"layout-detail rounded\">"+
 	     "<div class=\"title-detail\">Ecouter le dernier album :</div>"+
 			    "<div class=\"content-detail\">"+
 				 "<div class=\"row\">");
 		System.out.println(c.getUrlAlbum());
 		out.print("<a href=\""+c.getUrlAlbum()+"\"<i class=\"fab fa-spotify\">"+
 				"</i></a>"+
+				"</div>"+
+				"</div>"+
 				 "</div>");
 		
-		out.print("</div>"+
+		out.print("<div class=\"layout-detail rounded\">"+
 				   "<div class=\"title-detail\">Artiste(s) :</div>"+
 				   "<div class=\"content-detail artistt\">"+
 				   	"<span class=\"badge badge-info artist\">Artiste1</span><span class=\"badge badge-info\">Artiste2</span>"+
-				"</div>"+
-				"</div>"+
- 				"</div>");
+				   			"</div>"+
+				"</div>");
 		
 		out.print("</div>"+
 				"<div class=\"modal-footer\">"+
@@ -294,15 +300,15 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title"><div class="concert-title">La Bande Organisée tour</div></h5>
+        <h5 class="modal-title"><div class="concert-title">La Bande OrganisÃ©e tour</div></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       	<img src="assets/img/bande_organisee.jpg" class="img-fluid" alt="Responsive image">
       	<div class="body-content-modal">
-     		 <p>Le phénomène marseillais Bande Organisée continue de tout rafler sur son passage et les premiers certifications commencent à tomber. 
-			 En effet, ll n'aura fallu que 25 jours aux rappeurs marseillais présents sur le titre de Jul Bande Organisé pour cumuler 30 millions de streams et ainsi décrocher la certification disque de platine. Rien que sur Youtube, le clip réunissant Sch, Kofs, Jul, Naps, Soso maness, Elams, Solda et Houari a été regardé plus de 47 millions de fois. La semaine dernière, les marseillais se sont même payés le luxe de squatter le top 100 monde Spotify. Selon Midi/Minuit, c'est la première fois dans le rap français qu'un single est certifié platine aussi rapidement devant Lettre à Une Femme de Ninho et Au DD de PNL.</p>
+     		 <p>Le phÃ©nomÃ¨ne marseillais Bande OrganisÃ©e continue de tout rafler sur son passage et les premiers certifications commencent Ã  tomber. 
+			 En effet, ll n'aura fallu que 25 jours aux rappeurs marseillais prÃ©sents sur le titre de Jul Bande OrganisÃ© pour cumuler 30 millions de streams et ainsi dÃ©crocher la certification disque de platine. Rien que sur Youtube, le clip rÃ©unissant Sch, Kofs, Jul, Naps, Soso maness, Elams, Solda et Houari a Ã©tÃ© regardÃ© plus de 47 millions de fois. La semaine derniÃ¨re, les marseillais se sont mÃªme payÃ©s le luxe de squatter le top 100 monde Spotify. Selon Midi/Minuit, c'est la premiÃ¨re fois dans le rap franÃ§ais qu'un single est certifiÃ© platine aussi rapidement devant Lettre Ã  Une Femme de Ninho et Au DD de PNL.</p>
 			 <div class="row">
     <div class="col">
       <div class="layout-detail rounded">

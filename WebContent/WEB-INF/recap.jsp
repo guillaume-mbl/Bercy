@@ -1,6 +1,6 @@
 <%@page import="com.sun.org.apache.xalan.internal.xsltc.compiler.util.CompareGenerator"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@page import="com.Bercy.Beans.*"%>
 <%@ page import="java.util.*" %>
@@ -100,7 +100,7 @@
         
         
 
-<center><a href="./home"><button type="button" class="btn btn-light btn-comeback">Retourner Ã  l'accueil</button></a></center>
+<center><a href="./home"><button type="button" class="btn btn-light btn-comeback">Retourner à l'accueil</button></a></center>
     </div>
     
  </section>
