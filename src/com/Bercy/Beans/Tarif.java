@@ -9,6 +9,12 @@ public class Tarif {
 	private int restant;
 	
 	
+	public int getRestant() {
+		return restant;
+	}
+	public void setRestant(int restant) {
+		this.restant = restant;
+	}
 	public int getId() {
 		return id;
 	}

@@ -9,10 +9,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import com.Bercy.Beans.Categorie;
 import com.Bercy.Beans.Concert;
 import com.Bercy.Beans.Etat;
+import com.Bercy.Beans.Reservation;
 import com.Bercy.Beans.Tarif;
 
 public class ConnexionBDD {
@@ -160,6 +162,115 @@ public class ConnexionBDD {
 			return liste;
 			
 		}
+		
+		public List<Tarif> recupTarifs (int idConcert) throws SQLException {
+			String query = "Select * from concert_categorie inner join categorie on categorie_id = categorie.id where concert_id = "+ idConcert;
+
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+			
+			List<Tarif> liste = new ArrayList<Tarif>();
+			
+			while(rs.next()) {
+				Tarif t = new Tarif();
+				t.setPrix(rs.getFloat("prix"));
+				t.setRestant(rs.getInt("restant"));
+				
+				Categorie c = new Categorie();
+				c.setIdCategorie(rs.getInt("categorie.id"));
+				c.setIntitule(rs.getString("categorie.intitule"));
+				
+				t.setCat(c);
+				
+				liste.add(t);
+				
+			}
+			return liste;
+			
+		}
 	    
+		public float getPrix(int idConcert, String nomCat) throws SQLException {
+			String query = "Select prix from concert_categorie inner join "
+					+ "categorie on categorie_id = categorie.id "
+					+ "where concert_id = "+ idConcert + " and categorie.intitule = '"+nomCat+"'";
+
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+			
+			
+			while(rs.next()) {
+				return rs.getFloat("prix");
+				
+			}
+			
+			return 0;
+		}
+		
+		public String ajouterReservation(String prenom, String nom, String email,int idConcert) throws SQLException {
+			Random rnd = new Random();
+			int nb = rnd.nextInt(1500)+1000;
+			
+			String query = "insert into reservation (numero,dateheure,concert_id,nom,prenom,mail) "
+					+ "VALUES ('"+prenom.substring(0,2)+nom.substring(0,2)+nb+"',now(),"+idConcert+",'"+nom+"','"+prenom+"','"+email+"')";
+			
+			maConnexion.createStatement().execute(query);
+			
+			return prenom.substring(0,2)+nom.substring(0,2)+nb;
+			
+		}
+		
+		public Reservation recupReservation(String numReservation) throws SQLException {
+			String query = "Select * from reservation where numero = '"+numReservation+"'";
+			
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+			
+			Reservation r = new Reservation();
+			
+			while(rs.next()) {
+				Concert c = new Concert();
+				c.setId(rs.getInt("concert_id"));
+				r.setConcert(c);
+				
+				r.setDate_heure(rs.getString("dateheure"));
+				
+				r.setId(rs.getInt("id"));
+				
+				r.setNumero(rs.getString("numero"));
+				r.setNom(rs.getString("nom"));
+				r.setPrenom(rs.getString("prenom"));
+				r.setEmail(rs.getString("mail"));
+				
+				return r;			
+			}
+			
+			return null;
+			
+		}
+		public int recupPlaceMax(int idConcert, int idCategorie) throws SQLException {
+			String query = "SELECT MAX(place.numero) as numPlace from place "
+					+ "inner join reservation on reservation_id = reservation.id "
+					+ "inner join concert on reservation.concert_id = concert.id"
+					+ " where concert.id = "+idConcert+" AND categorie_id = "+idCategorie+" group by concert.id, categorie_id";
+			
+			ResultSet rs = maConnexion.createStatement().executeQuery(query);
+			
+			while(rs.next()) {
+				
+				return rs.getInt("numPlace");
+			}
+			
+			return 0;
+		}
+		
+		public void ajoutePlace(int idResa, int idConcert, int idCategorie) throws SQLException {
+			
+			int numPlace = recupPlaceMax(idConcert, idCategorie) +1;
+			
+			String query = "INSERT INTO place (numero,dateheure,reservation_id,categorie_id) VALUES ("+numPlace+",now(),"+idResa+","+idCategorie+")";
+			
+			maConnexion.createStatement().execute(query);
+					
+		}
+		
+		
+		
 	    
 }

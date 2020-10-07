@@ -277,7 +277,9 @@
 		
 		out.print("</div>"+
 				"<div class=\"modal-footer\">"+
+				"<a href=\"./reserver?id="+c.getId()+"\""+
 	        	"<button type=\"button\" class=\"btn-reservation btn btn-primary\">Reserver</button>"+
+				"</a>"+
 		      	"</div>"+
 		    	"</div>"+
 		  		"</div>"+
