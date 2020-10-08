@@ -1,6 +1,6 @@
 <%@page import="com.sun.org.apache.xalan.internal.xsltc.compiler.util.CompareGenerator"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     
 <%@page import="com.Bercy.Beans.*"%>
 <%@ page import="java.util.*" %>
@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta  http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<meta charset="UTF-8">
 <title>MALAYIM'</title>
 </head>
 <body>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <link href="assets/css/styles.css" rel="stylesheet">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -130,7 +130,7 @@
 	<div data-aos="fade-up">
 	<div class="row">
 	  <div class="col-md-3">	  
-		 
+	
 		  	<div class="card" data-toggle="modal" data-target=".bd-example-modal-lg">
 			  <img class="card-img-top" src="assets/img/bande_organisee.jpg" alt="Card image cap">
 			  	<div class="card-body">
@@ -141,7 +141,6 @@
 			  			</div>
 		  		</div>
 			</div>
-			
 	  </div>
 	  
 	  
@@ -313,7 +312,7 @@
     </div>
     <div class="col">
     <div class="layout-detail rounded">
-     <div class="title-detail">Ecouter le derniere album :</div>
+     <div class="title-detail">Ecouter le dernier album :</div>
 		 		 <div class="content-detail">
 					 <div class="row">
 						 <a href="https://open.spotify.com/album/3FrSGEYwEQS2Qx9nPt5WUs?si=ZIVjLpwMS-WkKvZq_6GSIg"><i class="fab fa-spotify">

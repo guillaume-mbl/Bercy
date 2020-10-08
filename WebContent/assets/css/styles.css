@@ -162,9 +162,11 @@ form{
 /*  MODAL */
 
 .modal-content img{
-	height: 300px;
+	max-height: auto;
+	width: 500px;
 	margin: 10px;
 }
+
 .body-content-modal{
 	margin: 10px;
 }
