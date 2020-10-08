@@ -1,3 +1,3 @@
 # Bercy
 
-Le fichier SQL se trouve ici : Bercy/WebContent/assets/bdd/malayim.bdd
+Le fichier SQL se trouve ici : WebContent/assets/bdd/malayim.bdd
